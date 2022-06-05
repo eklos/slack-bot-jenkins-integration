@@ -33,6 +33,9 @@ pipeline {
         always {
             echo 'Sending Slack message'
             sh "pwd"
+            sh "export GOPATH=$HOME/go"
+            sh 'export GOROOT="$(brew --prefix golang)/libexec"'
+            sh  'export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"'
             sh "printenv"
             sh "go run send-jenkins-notification/slack-notification.go ${BUILD_URL} ${currentBuild.currentResult} ${BUILD_NUMBER} ${JOB_NAME} "
         }
