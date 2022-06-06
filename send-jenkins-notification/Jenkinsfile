@@ -32,8 +32,6 @@ pipeline {
 
         always {
             echo 'Sending Slack message'
-            sh "pwd"
-            sh "printenv"
             sh "go run send-jenkins-notification/slack-notification.go ${BUILD_URL} ${currentBuild.currentResult} ${BUILD_NUMBER} ${JOB_NAME} "
         }
     }
