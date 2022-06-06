@@ -33,7 +33,6 @@ pipeline {
         always {
             echo 'Sending Slack message'
             sh "pwd"
-GOROOT=/opt/homebrew/opt/go/libexec
             sh "export GOPATH=$HOME/go"
             sh "export GOROOT=/opt/homebrew/opt/go/libexec"
             sh 'export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"'
